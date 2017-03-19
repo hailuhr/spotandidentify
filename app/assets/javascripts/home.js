@@ -79,10 +79,8 @@ function makeNewPerson(e) {
         favoriteCity: favoriteCity
       },
     error: function(e) {
-      debugger
     },
     success: function(e) {
-      debugger
 
       var text = `name: ${e.name} <br> favoriteCity: ${e.favoriteCity} <br>`
       $(".show_person").html(text)
@@ -93,7 +91,6 @@ function makeNewPerson(e) {
 
 function updatePerson(e) {
   var favoriteCity = $("input[name*=favoriteCity_for_put]").val()
-  debugger;
     $.ajax({
       method: "put",
       url: "/people/1",
@@ -101,10 +98,8 @@ function updatePerson(e) {
         favoriteCity: favoriteCity
       },
       error: function(e){
-        debugger;
       },
       success: function(e) {
-        debugger
 
         var text = `name: ${e.name} <br> new value for attribute favoriteCity: <br> ${e.favoriteCity}`
         $(".person_one_show_update").html(text)
@@ -119,7 +114,6 @@ function deletePerson(e) {
       method: "delete",
       url: "/people/1",
       error: function(e){
-        debugger;
       },
       success: function(e) {
         $(".delete_message").html(e.message)
@@ -131,6 +125,6 @@ function deletePerson(e) {
 
 }
 
-function reload(e) {
-
-}
+// function reload(e) {
+//
+// }
