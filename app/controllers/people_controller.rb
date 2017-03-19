@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
+  before_action :set_header
 
   def index
     @people = People.all
@@ -58,8 +59,13 @@ class PeopleController < ApplicationController
 
   end
 
+  # respond_to do |f|
+  #   f.html { render :show }
+  #   f.json { render json: @ person }
+  # end
+
   def delete_form
-  end 
+  end
 
   private
 
@@ -67,4 +73,7 @@ class PeopleController < ApplicationController
       params.permit(:name, :favoriteCity)
     end
 
+    def set_header
+      headers['Access-Control-Allow-Origin'] = "*"
+    end
 end
