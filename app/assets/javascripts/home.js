@@ -41,16 +41,16 @@ function getPeopleList(e) {
       $(".people_list").empty().prepend("<br>").append(`<h4>All People</h4>`)
       data.forEach(function(e){
         // debugger
-        print = {id: e.id, name: e.name, favoriteCity: e.favoriteCity}
-        var id = e.id
-        var link = $(document.createElement("a"))
-        link.attr('href', `/people/${id}`)
-        link.attr('class', `people`)
-        link.attr('id', `${id}`)
-        link.text(e.name)
+        // print = {id: e.id, name: e.name, favoriteCity: e.favoriteCity}
+        // var id = e.id
+        // var link = $(document.createElement("a"))
+        // link.attr('href', `/people/${id}`)
+        // link.attr('class', `people`)
+        // link.attr('id', `${id}`)
+        // link.text(e.name)
         // link.text ++ e.favoriteCity ++ id
 
-        $(".people_list").append(link).append(`<br>`)
+        // $(".people_list").append(link).append(`<br>`)
         // $(".people_list").append(print).append(`<br>`)
 
         // debugger
@@ -82,8 +82,8 @@ function makeNewPerson(e) {
     },
     success: function(e) {
 
-      var text = `name: ${e.name} <br> favoriteCity: ${e.favoriteCity} <br>`
-      $(".show_person").html(text)
+      // var text = `name: ${e.name} <br> favoriteCity: ${e.favoriteCity} <br>`
+      // $(".show_person").html(text)
     }
   })
 }
@@ -101,8 +101,8 @@ function updatePerson(e) {
       },
       success: function(e) {
 
-        var text = `name: ${e.name} <br> new value for attribute favoriteCity: <br> ${e.favoriteCity}`
-        $(".person_one_show_update").html(text)
+        // var text = `name: ${e.name} <br> new value for attribute favoriteCity: <br> ${e.favoriteCity}`
+        // $(".person_one_show_update").html(text)
       }
     })
 
