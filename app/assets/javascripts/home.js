@@ -38,7 +38,7 @@ function getPeopleList(e) {
       // debugger
     },
     success: function(data) {
-      $(".people_list").empty().prepend("<br>").append(`<h4>All People</h4>`)
+      $(".people_list").empty().prepend("<br>").append("<h4>All People</h4>")
       data.forEach(function(e){
         // debugger
         // print = {id: e.id, name: e.name, favoriteCity: e.favoriteCity}
