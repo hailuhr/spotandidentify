@@ -24,7 +24,6 @@ class PeopleController < ApplicationController
   def create
     @person = People.new(people_params)
     # binding.pry
-    @person.id = People.count + 1
     # @person.save
     if @person.save
       render json: @person
@@ -60,10 +59,6 @@ class PeopleController < ApplicationController
 
   end
 
-  # respond_to do |f|
-  #   f.html { render :show }
-  #   f.json { render json: @ person }
-  # end
 
   def delete_form
   end
