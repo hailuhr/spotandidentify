@@ -1,6 +1,8 @@
 class PeopleController < ApplicationController
   # protect_from_forgery with: :exception
-  before_action :set_header
+  skip_before_filter :verify_authenticity_token
+  before_action :before_headers
+  after_action :after_headers
 
   def index
     @people = People.all
@@ -73,14 +75,21 @@ class PeopleController < ApplicationController
       params.permit(:name, :favoriteCity)
     end
 
-    def set_header
+    def before_headers
+      if request.method == 'OPTIONS'
+        headers['Access-Control-Allow-Origin'] = '*'
+        headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+        headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-Prototype-Version, Token'
+        headers['Access-Control-Max-Age'] = '1728000'
+
+        render :text => '', :content_type => 'text/plain'
+      end
+    end
+
+    def after_headers
       headers['Access-Control-Allow-Origin'] = "*"
       headers['Access-Control-Request-Method'] = %w{GET POST OPTIONS}.join(",")
       headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
       headers['Access-Control-Max-Age'] = "1728000"
-      # config.action_dispatch.default_headers = {
-      #   'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
-      #   'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
-      # }
     end
 end
