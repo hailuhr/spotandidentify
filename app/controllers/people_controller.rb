@@ -75,5 +75,10 @@ class PeopleController < ApplicationController
 
     def set_header
       headers['Access-Control-Allow-Origin'] = "*"
+      headers['Access-Control-Request-Method'] => %w{GET POST OPTIONS}.join(",")
+      # config.action_dispatch.default_headers = {
+      #   'Access-Control-Allow-Origin' => 'http://my-web-service-consumer-site.com',
+      #   'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+      # }
     end
 end
