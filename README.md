@@ -1,25 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Spotandidentify Server
 
-Things you may want to cover:
+* API Server Endpoint
 
-* Ruby version
+* Responds to Get, Post, Put, Delete Requests
 
-* System dependencies
+* Built With
+- Ruby version - ruby 2.3.0
+- Rails
+- postgresql
+- Rack::Cors gem
 
-* Configuration
 
-* Database creation
+* Deployed on Heroku at:
 
-* Database initialization
+https://spotandidentify.herokuapp.com/
 
-* How to run the test suite
+JSON objects extension:
+https://spotandidentify.herokuapp.com/people
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
 # spotandidentify
