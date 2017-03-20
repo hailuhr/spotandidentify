@@ -13,18 +13,14 @@ class PeopleController < ApplicationController
     if @person
       render json: @person
     else
-      render json: {message: "No person found"}
+      render json: {message: "No person with that id found"}
     end
   end
 
-  def new
-    # @people = People.new
-  end
 
   def create
     @person = People.new(people_params)
-    # binding.pry
-    # @person.save
+
     if @person.save
       render json: @person
     else
@@ -32,8 +28,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def edit
-  end
 
   def update
     @person = People.find_by_id(params[:id])
@@ -54,14 +48,11 @@ class PeopleController < ApplicationController
       @person.delete
       render json: {message: "Deleted"}
     else
-      render json: {message: "No person to delete"}
+      render json: {message: "Person with id 1 has already been deleted"}
     end
 
   end
 
-
-  def delete_form
-  end
 
   private
 

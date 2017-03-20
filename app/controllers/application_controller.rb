@@ -5,10 +5,4 @@ class ApplicationController < ActionController::Base
   end
 
 
-  protected
-
-  def json_request?
-    request.format.json?
-  end
-
 end
