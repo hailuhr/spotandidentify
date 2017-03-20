@@ -6,7 +6,7 @@ Spotandidentify Server
 
 * Responds to Get, Post, Put, Delete Requests
 
-* Built With
+Built With
 - Ruby version - ruby 2.3.0
 - Rails
 - postgresql
@@ -17,7 +17,7 @@ Spotandidentify Server
 
 https://spotandidentify.herokuapp.com/
 
-JSON objects extension:
+JSON objects address:
 https://spotandidentify.herokuapp.com/people
 
 
