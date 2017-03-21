@@ -30,7 +30,7 @@ class PeopleController < ApplicationController
     @person = People.find_by_id(params[:id])
 
     @person.update(people_params)
-    if @person.valid?
+    if @person.save
       render json: @person
     else
       render json: @person.errors
@@ -43,10 +43,10 @@ class PeopleController < ApplicationController
 
     if @person
       @person.delete
-      # render json: {valid: true, message: "Person 1 has been deleted!"}
+      render json: {valid: true, message: "Person 1 has been deleted!"}
     else
       render json: @person.errors
-      # render json: {valid: false, message: "Person with id 1 has been deleted already!"}
+      render json: {valid: false, message: "Person with id 1 has been deleted already!"}
     end
 
   end
