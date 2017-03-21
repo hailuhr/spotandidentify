@@ -1,7 +1,4 @@
 class PeopleController < ApplicationController
-  # protect_from_forgery with: :exception
-  # skip_before_filter :verify_authenticity_token
-
 
   def index
     @people = People.all
@@ -14,7 +11,6 @@ class PeopleController < ApplicationController
       render json: @person
     else
       render json: @person.errors
-      # render json: {message: "No person with that id found"}
     end
   end
 
@@ -25,7 +21,6 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      # render json: {message: "Not saved - bad data"}
       render json: @person.errors
     end
   end
@@ -34,11 +29,9 @@ class PeopleController < ApplicationController
   def update
     @person = People.find_by_id(params[:id])
 
-    if @person
-      @person.update(people_params)
+    if @person.update(people_params)
       render json: @person
     else
-      # render json: {message: "Not saved - bad data"}
       render json: @person.errors
     end
 
