@@ -13,7 +13,8 @@ class PeopleController < ApplicationController
     if @person
       render json: @person
     else
-      render json: {message: "No person with that id found"}
+      render json: @person.errors
+      # render json: {message: "No person with that id found"}
     end
   end
 
@@ -24,7 +25,8 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      render json: {message: "Not saved - bad data"}
+      # render json: {message: "Not saved - bad data"}
+      render json: @person.errors
     end
   end
 
@@ -36,7 +38,8 @@ class PeopleController < ApplicationController
       @person.update(people_params)
       render json: @person
     else
-      render json: {message: "Not saved - bad data"}
+      # render json: {message: "Not saved - bad data"}
+      render json: @person.errors
     end
 
   end
@@ -46,9 +49,10 @@ class PeopleController < ApplicationController
 
     if @person
       @person.delete
-      render json: {valid: true, message: "Person 1 has been deleted!"}
+      # render json: {valid: true, message: "Person 1 has been deleted!"}
     else
-      render json: {valid: false, message: "Person with id 1 has been deleted already!"}
+      render json: @person.errors
+      # render json: {valid: false, message: "Person with id 1 has been deleted already!"}
     end
 
   end
