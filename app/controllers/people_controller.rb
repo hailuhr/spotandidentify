@@ -34,7 +34,8 @@ class PeopleController < ApplicationController
   def update
     @person = People.find_by_id(params[:id])
 
-    if @person.update(people_params)
+    if @person
+      @person.update(people_params)
       render json: @person
     else
       # render json: {message: "Not saved - bad data"}
