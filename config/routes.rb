@@ -7,12 +7,6 @@ Rails.application.routes.draw do
 
   post '/people', to: 'people#create'
 
-  # ***practice_for_client
-  get '/people/new', to: 'people#new', as: :new_person
-
-  # ***practice_for_client
-  get '/people/:id/edit', to: 'people#edit', as: :edit_person
-
   get '/people/:id', to: 'people#show', as: :person
 
   put '/people/:id', to: 'people#update'

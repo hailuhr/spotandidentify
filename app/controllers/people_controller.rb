@@ -10,8 +10,6 @@ class PeopleController < ApplicationController
     if @person
       render json: @person
     else
-      # render json: ErrorSerializer.serialize(@person.errors)
-
       respond_to do |format|
         format.html {
           flash[:notice] = 'No such person with that id'
