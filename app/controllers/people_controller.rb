@@ -10,7 +10,9 @@ class PeopleController < ApplicationController
     if @person
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
+
     end
   end
 
@@ -21,7 +23,9 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
+
     end
   end
 
@@ -33,7 +37,8 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
 
   end
@@ -46,6 +51,7 @@ class PeopleController < ApplicationController
       render json: @person
     else
       render json: @person
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
 
   end
