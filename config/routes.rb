@@ -21,4 +21,7 @@ Rails.application.routes.draw do
 
   get '/people/:id/delete_form', to: 'people#delete_form'
   # resources :people
+
+  map.connect '*from', :controller => 'application', :action => 'redirect'
+
 end
