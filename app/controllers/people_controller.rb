@@ -46,7 +46,8 @@ class PeopleController < ApplicationController
       render json: @person
       # render json: {valid: true, message: "Person 1 has been deleted!"}
     else
-      render json: {valid: false, message: "Person with id 1 has been deleted already!"}
+      render json: @person
+      # render json: {valid: false, message: "Person with id 1 has been deleted already!"}
     end
 
   end
