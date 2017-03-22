@@ -10,7 +10,8 @@ class PeopleController < ApplicationController
     if @person
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
   end
 
@@ -21,7 +22,8 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
   end
 
@@ -33,7 +35,8 @@ class PeopleController < ApplicationController
     if @person.save
       render json: @person
     else
-      render json: @person.errors
+      # render json: @person.errors
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
 
   end
@@ -43,11 +46,10 @@ class PeopleController < ApplicationController
 
     if @person
       @person.destroy
-      render json: @person
-      # render json: {valid: true, message: "Person 1 has been deleted!"}
+      # render json: @person
     else
-      render json: @person
-      # render json: {valid: false, message: "Person with id 1 has been deleted already!"}
+      # render json: @person
+      render: json: ErrorSerializer.serialize(@person.errors)
     end
 
   end
